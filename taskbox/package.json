@@ -19,7 +19,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6008 --https --ssl-cert ./certs/localhost.pem --ssl-key ./certs/localhost-key.pem",
+    "setup:dev:certs": "powershell -Command \"if (!(Test-Path './certs')) { New-Item -ItemType Directory -Path './certs' }; Set-Location ./certs; mkcert localhost\"",
     "build-storybook": "storybook build",
     "init-msw": "msw init public/"
   },

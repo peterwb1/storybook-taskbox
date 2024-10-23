@@ -1,26 +1,37 @@
-
 # Workflow name
 name: 'Chromatic Deployment'
 
 # Event for the workflow
-on: push
+on:
+  push:
+    branches:
+      - main
 
 # List of jobs
 jobs:
   chromatic:
     name: 'Run Chromatic'
     runs-on: ubuntu-latest
+
     # Job steps
     steps:
+      # Checkout the repository
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: yarn
-      - run: cd taskbox # Move into the taskbox directory
-        #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@latest
-        # Options required for Chromatic's GitHub Action
+
+      # Navigate to the 'taskbox' directory
+      - name: Navigate to taskbox directory
+        run: cd taskbox
+
+      # Install dependencies using Yarn
+      - name: Install dependencies
+        run: yarn install
+
+      # Publish to Chromatic
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/vue/en/deploy/ to obtain it
+          # Use your provided project token
           projectToken: chpt_e904b02057d0a9a
           token: ${{ secrets.GITHUB_TOKEN }}

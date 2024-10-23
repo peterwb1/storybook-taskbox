@@ -4,7 +4,7 @@ import { fireEvent, within } from '@storybook/test'
 
 export default {
   component: PureInboxScreen,
-  title: 'PureInboxScreen',
+  title: 'Demo/PureInboxScreen',
   tags: ['autodocs']
 }
 

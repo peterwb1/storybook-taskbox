@@ -10,7 +10,7 @@
       </div>
       <div v-else class="page lists-show">
         <nav>
-          <h1 class="title-page">Taskbox</h1>
+          <h3 class="title-page">Taskbox</h3>
         </nav>
         <TaskList />
       </div>

@@ -21,6 +21,7 @@
     "format": "prettier --write src/",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "type-check-watch": "tsc --noEmit --watch",
     "init-msw": "msw init public/",
     "setup:dev:certs": "powershell -Command \"if (!(Test-Path './certs')) { New-Item -ItemType Directory -Path './certs' }; Set-Location ./certs; mkcert localhost\""
   },
@@ -36,7 +37,9 @@
     "@storybook/test": "^8.3.2",
     "@storybook/vue3": "^8.3.2",
     "@storybook/vue3-vite": "^8.3.2",
+    "@types/node": "^22.7.9",
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/cli-plugin-typescript": "^5.0.8",
     "@vue/eslint-config-prettier": "^9.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-storybook": "^0.8.0",
@@ -45,6 +48,7 @@
     "msw-storybook-addon": "^2.0.3",
     "prettier": "^3.2.5",
     "storybook": "^8.3.2",
+    "typescript": "^5.6.3",
     "vite": "^5.2.8"
   },
   "resolutions": {

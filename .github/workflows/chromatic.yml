@@ -20,12 +20,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Navigate to the 'taskbox' directory
-      - name: Navigate to taskbox directory
-        run: cd taskbox
-
       # Install dependencies using Yarn
       - name: Install dependencies
+        working-directory: taskbox # Set working directory to taskbox
         run: yarn install
 
       # Publish to Chromatic
@@ -35,3 +32,4 @@ jobs:
           # Use your provided project token
           projectToken: chpt_e904b02057d0a9a
           token: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: taskbox # Set working directory to taskbox

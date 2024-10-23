@@ -1,8 +1,14 @@
-<script setup>
 
+<script setup>
+import InboxScreen from './components/InboxScreen.vue';
 </script>
 
 <template>
-  <h1>test</h1>
+  <div id="app">
+    <InboxScreen />
+  </div>
 </template>
 
+<style>
+@import './index.css';
+</style>

@@ -20,13 +20,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Change directory to taskbox and install dependencies using npm
+      # Install dependencies using npm
       - name: Install dependencies
         run: |
           cd taskbox
           npm install
 
-      # Run Chromatic in the taskbox directory
+      # Ensure the public directory exists
+      - name: Create public directory if missing
+        run: |
+          mkdir -p taskbox/public
+
+      # Build Storybook with a custom output directory
+      - name: Build Storybook
+        run: |
+          cd taskbox
+          yarn build-storybook --output-dir=storybook-static
+
+      # Publish to Chromatic
       - name: Publish to Chromatic
         run: |
           cd taskbox

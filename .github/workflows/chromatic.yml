@@ -20,16 +20,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Install dependencies using Yarn
+      # Change directory to taskbox and install dependencies using npm
       - name: Install dependencies
-        working-directory: taskbox # Set working directory to taskbox
-        run: yarn install
+        run: |
+          cd taskbox
+          npm install
 
-      # Publish to Chromatic
+      # Run Chromatic in the taskbox directory
       - name: Publish to Chromatic
-        uses: chromaui/action@latest
-        with:
-          # Use your provided project token
-          projectToken: chpt_e904b02057d0a9a
-          token: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: taskbox # Set working directory to taskbox
+        run: |
+          cd taskbox
+          npx chromatic --project-token=chpt_e904b02057d0a9a
